@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ColorButton from "./components/ColorButton";
+import SummaryForm from "./pages/summary/SummaryForm";
+import Options from "./pages/entry/Options";
+import OrderEntry from "./pages/entry/OrderEntry";
+import { Container } from "react-bootstrap";
+import { OrderDetailsProvider } from "./contexts/OrderDetails";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <Container>
+            {/*<ColorButton />*/}
+            {/*<SummaryForm />*/}
+            <OrderDetailsProvider>
+                {/* Summary page and entry page need provider */}
+                <OrderEntry />
+            </OrderDetailsProvider>
+            {/* confirmation page does not need provider */}
+        </Container>
+    );
+};
 
 export default App;
